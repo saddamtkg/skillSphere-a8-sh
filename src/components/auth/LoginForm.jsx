@@ -1,15 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { signIn } from "@/lib/auth-client";
 
-const LoginForm = () => {
+const LoginForm = ({ redirectPath = "/" }) => {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [serverError, setServerError] = useState("");
 
   const {
@@ -21,8 +20,6 @@ const LoginForm = () => {
   // This handles email and password login.
   const onSubmit = async (values) => {
     setServerError("");
-    const redirectPath = searchParams.get("redirect") || "/";
-
     const result = await signIn.email({
       email: values.email,
       password: values.password,

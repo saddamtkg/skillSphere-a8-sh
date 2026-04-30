@@ -1,14 +1,7 @@
-import { Suspense } from "react";
 import CourseCard from "@/components/courses/CourseCard";
 import CourseSearchForm from "@/components/courses/CourseSearchForm";
 import Reveal from "@/components/shared/Reveal";
 import { getAllCourses } from "@/lib/data-fetch";
-
-const courseSearchFallback = (
-  <div className="flex min-h-[160px] items-center justify-center rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-    <span className="loading loading-spinner loading-md text-slate-700" />
-  </div>
-);
 
 const coursesPage = async ({ searchParams }) => {
   const resolvedSearchParams = await searchParams;
@@ -38,9 +31,10 @@ const coursesPage = async ({ searchParams }) => {
         </Reveal>
 
         {/* Same rule as login: keep Suspense under the server segment, outside client `Reveal`. */}
-        <Suspense fallback={courseSearchFallback}>
-          <CourseSearchForm />
-        </Suspense>
+        <CourseSearchForm
+          key={`courses-search:${resolvedSearchParams?.search ?? ""}`}
+          initialSearch={resolvedSearchParams?.search ?? ""}
+        />
       </div>
 
       {filteredCourses.length ? (

@@ -1,13 +1,15 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 
-const CourseSearchForm = () => {
+const readUrlSearchParams = () =>
+  typeof window !== "undefined" ? new URLSearchParams(window.location.search) : new URLSearchParams();
+
+const CourseSearchForm = ({ initialSearch = "" }) => {
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-  const [searchText, setSearchText] = useState(() => searchParams.get("search") || "");
+  const [searchText, setSearchText] = useState(initialSearch);
 
   // This handles search submit and clears query on empty input.
   const handleSubmit = (event) => {
@@ -19,7 +21,7 @@ const CourseSearchForm = () => {
       return;
     }
 
-    const params = new URLSearchParams(searchParams.toString());
+    const params = readUrlSearchParams();
     params.set("search", trimmedValue);
     router.push(`${pathname}?${params.toString()}`);
   };
@@ -29,8 +31,8 @@ const CourseSearchForm = () => {
     const value = event.target.value;
     setSearchText(value);
 
-    if (!value.trim() && searchParams.get("search")) {
-      const params = new URLSearchParams(searchParams.toString());
+    if (!value.trim() && readUrlSearchParams().get("search")) {
+      const params = readUrlSearchParams();
       params.delete("search");
       const queryString = params.toString();
       router.replace(queryString ? `${pathname}?${queryString}` : pathname);
