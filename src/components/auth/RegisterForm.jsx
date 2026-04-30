@@ -1,11 +1,11 @@
 "use client";
 
+import { signUp } from "@/lib/auth-client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { signUp } from "@/lib/auth-client";
 
 const RegisterForm = () => {
   const router = useRouter();
@@ -22,7 +22,6 @@ const RegisterForm = () => {
     setServerError("");
 
     const result = await signUp.email({
-      
       name: values.name,
       email: values.email,
       password: values.password,
@@ -30,7 +29,8 @@ const RegisterForm = () => {
     });
 
     if (result?.error) {
-      const message = result.error.message || "Registration failed. Please try again.";
+      const message =
+        result.error.message || "Registration failed. Please try again.";
       setServerError(message);
       toast.error(message);
       return;
@@ -42,15 +42,20 @@ const RegisterForm = () => {
   };
 
   return (
-    <div className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+    <div className="w-full max-w-lg min-w-md rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
       <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
         Get Started
       </p>
-      <h1 className="mt-1 text-2xl font-bold text-slate-900">Create an Account</h1>
+      <h1 className="mt-1 text-2xl font-bold text-slate-900">
+        Create an Account
+      </h1>
 
       <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-4">
         <div>
-          <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-slate-700">
+          <label
+            htmlFor="name"
+            className="mb-1.5 block text-sm font-medium text-slate-700"
+          >
             Name
           </label>
           <input
@@ -66,11 +71,16 @@ const RegisterForm = () => {
               },
             })}
           />
-          {errors.name && <p className="mt-1 text-xs text-red-600">{errors.name.message}</p>}
+          {errors.name && (
+            <p className="mt-1 text-xs text-red-600">{errors.name.message}</p>
+          )}
         </div>
 
         <div>
-          <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-slate-700">
+          <label
+            htmlFor="email"
+            className="mb-1.5 block text-sm font-medium text-slate-700"
+          >
             Email
           </label>
           <input
@@ -92,7 +102,10 @@ const RegisterForm = () => {
         </div>
 
         <div>
-          <label htmlFor="image" className="mb-1.5 block text-sm font-medium text-slate-700">
+          <label
+            htmlFor="image"
+            className="mb-1.5 block text-sm font-medium text-slate-700"
+          >
             Photo URL
           </label>
           <input
@@ -130,7 +143,9 @@ const RegisterForm = () => {
             })}
           />
           {errors.password && (
-            <p className="mt-1 text-xs text-red-600">{errors.password.message}</p>
+            <p className="mt-1 text-xs text-red-600">
+              {errors.password.message}
+            </p>
           )}
         </div>
 
@@ -147,7 +162,10 @@ const RegisterForm = () => {
 
       <p className="mt-5 text-center text-sm text-slate-600">
         Already have an account?{" "}
-        <Link href="/login" className="font-semibold text-slate-900 hover:underline">
+        <Link
+          href="/login"
+          className="font-semibold text-slate-900 hover:underline"
+        >
           Login
         </Link>
       </p>

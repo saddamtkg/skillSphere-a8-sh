@@ -5,7 +5,7 @@ const authPaths = ["/login", "/register"];
 const hasAuthSession = (request) => {
   return Boolean(
     request.cookies.get("better-auth.session_token") ||
-      request.cookies.get("__Secure-better-auth.session_token")
+    request.cookies.get("__Secure-better-auth.session_token")
   );
 };
 
