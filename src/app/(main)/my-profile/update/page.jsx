@@ -69,7 +69,9 @@ const UpdateProfilePage = () => {
   if (isPending) {
     return (
       <section className="flex min-h-[40vh] items-center justify-center">
-        <p className="text-sm font-medium text-slate-600">Loading profile data...</p>
+        <p role="status" aria-live="polite" className="text-sm font-medium text-slate-600">
+          Loading profile data...
+        </p>
       </section>
     );
   }
@@ -98,7 +100,11 @@ const UpdateProfilePage = () => {
       </p>
       <h1 className="mt-1 text-2xl font-bold text-slate-900">Edit Your Information</h1>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-4">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        aria-label="Update profile information"
+        className="mt-6 space-y-4"
+      >
         <div>
           <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-slate-700">
             Name
@@ -106,6 +112,9 @@ const UpdateProfilePage = () => {
           <input
             id="name"
             type="text"
+            aria-invalid={errors.name ? "true" : "false"}
+            aria-describedby={errors.name ? "update-name-error" : undefined}
+            autoComplete="name"
             className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-slate-500"
             {...register("name", {
               required: "Name is required.",
@@ -115,7 +124,11 @@ const UpdateProfilePage = () => {
               },
             })}
           />
-          {errors.name && <p className="mt-1 text-xs text-red-600">{errors.name.message}</p>}
+          {errors.name && (
+            <p id="update-name-error" role="alert" className="mt-1 text-xs text-red-600">
+              {errors.name.message}
+            </p>
+          )}
         </div>
 
         <div>
@@ -125,13 +138,18 @@ const UpdateProfilePage = () => {
           <input
             id="image"
             type="url"
+            aria-invalid={errors.image ? "true" : "false"}
+            aria-describedby={errors.image ? "update-image-error" : undefined}
+            autoComplete="off"
             className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-slate-500"
             {...register("image", {
               required: "Image URL is required.",
             })}
           />
           {errors.image && (
-            <p className="mt-1 text-xs text-red-600">{errors.image.message}</p>
+            <p id="update-image-error" role="alert" className="mt-1 text-xs text-red-600">
+              {errors.image.message}
+            </p>
           )}
         </div>
 

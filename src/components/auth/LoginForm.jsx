@@ -44,7 +44,11 @@ const LoginForm = ({ redirectPath = "/" }) => {
       </p>
       <h1 className="mt-1 text-2xl font-bold text-slate-900">Login to SkillSphere</h1>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-4">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        aria-label="Sign in with email"
+        className="mt-6 space-y-4"
+      >
         <div>
           <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-slate-700">
             Email
@@ -53,6 +57,9 @@ const LoginForm = ({ redirectPath = "/" }) => {
             id="email"
             type="email"
             placeholder="you@example.com"
+            aria-invalid={errors.email ? "true" : "false"}
+            aria-describedby={errors.email ? "login-email-error" : undefined}
+            autoComplete="email"
             className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-slate-500"
             {...register("email", {
               required: "Email is required.",
@@ -63,7 +70,9 @@ const LoginForm = ({ redirectPath = "/" }) => {
             })}
           />
           {errors.email && (
-            <p className="mt-1 text-xs text-red-600">{errors.email.message}</p>
+            <p id="login-email-error" role="alert" className="mt-1 text-xs text-red-600">
+              {errors.email.message}
+            </p>
           )}
         </div>
 
@@ -78,6 +87,9 @@ const LoginForm = ({ redirectPath = "/" }) => {
             id="password"
             type="password"
             placeholder="••••••••"
+            aria-invalid={errors.password ? "true" : "false"}
+            aria-describedby={errors.password ? "login-password-error" : undefined}
+            autoComplete="current-password"
             className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-slate-500"
             {...register("password", {
               required: "Password is required.",
@@ -88,11 +100,17 @@ const LoginForm = ({ redirectPath = "/" }) => {
             })}
           />
           {errors.password && (
-            <p className="mt-1 text-xs text-red-600">{errors.password.message}</p>
+            <p id="login-password-error" role="alert" className="mt-1 text-xs text-red-600">
+              {errors.password.message}
+            </p>
           )}
         </div>
 
-        {serverError && <p className="text-sm text-red-600">{serverError}</p>}
+        {serverError && (
+          <p role="alert" className="text-sm text-red-600">
+            {serverError}
+          </p>
+        )}
 
         <button
           type="submit"

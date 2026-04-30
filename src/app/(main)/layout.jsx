@@ -6,7 +6,9 @@ const layout = ({ children }) => {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navbar />
-      <main className="c-container py-8">{children}</main>
+      <main id="main-content" tabIndex={-1} className="c-container py-8 outline-none">
+        {children}
+      </main>
       <Footer />
     </div>
   );

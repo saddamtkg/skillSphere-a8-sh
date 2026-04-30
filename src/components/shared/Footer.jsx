@@ -59,7 +59,7 @@ const Footer = () => {
           </h4>
           <ul className="mt-4 space-y-3 text-sm">
             <li className="flex items-center gap-2">
-              <Mail size={16} className="text-slate-400" />
+              <Mail size={16} className="text-slate-400" aria-hidden />
               <a
                 href="mailto:support@skillsphere.com"
                 className="transition-colors duration-200 hover:text-white"
@@ -68,7 +68,7 @@ const Footer = () => {
               </a>
             </li>
             <li className="flex items-center gap-2">
-              <Phone size={16} className="text-slate-400" />
+              <Phone size={16} className="text-slate-400" aria-hidden />
               <a
                 href="tel:+8801700000000"
                 className="transition-colors duration-200 hover:text-white"
@@ -77,7 +77,7 @@ const Footer = () => {
               </a>
             </li>
             <li className="flex items-center gap-2">
-              <MapPin size={16} className="text-slate-400" />
+              <MapPin size={16} className="text-slate-400" aria-hidden />
               Thakurgaon, Rangpur, Bangladesh
             </li>
           </ul>
@@ -95,7 +95,7 @@ const Footer = () => {
                   key={item.label}
                   href={item.href}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   className="rounded-lg border border-slate-700 p-2 transition-all duration-200 hover:-translate-y-0.5 hover:border-slate-500 hover:text-white"
                   aria-label={item.label}
                 >

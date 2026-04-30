@@ -3,6 +3,12 @@ import CourseSearchForm from "@/components/courses/CourseSearchForm";
 import Reveal from "@/components/shared/Reveal";
 import { getAllCourses } from "@/lib/data-fetch";
 
+export const metadata = {
+  title: "Courses",
+  description:
+    "Browse every SkillSphere course, search by title, and jump into structured learning paths.",
+};
+
 const coursesPage = async ({ searchParams }) => {
   const resolvedSearchParams = await searchParams;
   const courses = await getAllCourses();

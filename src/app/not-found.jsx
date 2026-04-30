@@ -5,7 +5,7 @@ import Reveal from "@/components/shared/Reveal";
 import { Home, Compass } from "lucide-react";
 
 export const metadata = {
-  title: "Page Not Found · SkillSphere",
+  title: { absolute: "Page not found · SkillSphere" },
   description: "The page you are looking for does not exist or was moved.",
 };
 
@@ -13,7 +13,7 @@ const NotFound = () => {
   return (
     <div className="min-h-screen bg-slate-50">
       <Navbar />
-      <main className="c-container py-12 md:py-20">
+      <main id="main-content" tabIndex={-1} className="c-container py-12 outline-none md:py-20">
         <Reveal className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white px-8 py-16 text-center shadow-sm md:px-16 md:py-24">
           <div
             aria-hidden

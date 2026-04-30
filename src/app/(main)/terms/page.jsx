@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Terms & Conditions",
+  description:
+    "SkillSphere platform terms of use: responsibilities, courses, disclaimers, and contact information.",
+};
+
 const TermsPage = () => {
   return (
     <section className="mx-auto max-w-4xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">

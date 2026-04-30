@@ -11,6 +11,12 @@ import {
   getTrendingCourses,
 } from "@/lib/data-fetch";
 
+export const metadata = {
+  title: "Home",
+  description:
+    "Discover popular courses, top instructors, learning tips, and trending skills on SkillSphere.",
+};
+
 const homePage = async () => {
   const heroSlides = await getHeroSlides();
   const popularCourses = await getPopularCourses(3);

@@ -20,7 +20,12 @@ const HeroSlider = ({ slides = [] }) => {
   }
 
   return (
-    <section className="hero-slider relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-900 shadow-lg">
+    <section
+      className="hero-slider relative overflow-hidden rounded-3xl border border-slate-200 bg-slate-900 shadow-lg"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Featured highlights"
+    >
       <Swiper
         modules={[Autoplay, Pagination, EffectFade]}
         slidesPerView={1}

@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Privacy Policy",
+  description:
+    "Read how SkillSphere collects, uses, and protects your account and learning data.",
+};
+
 const PrivacyPage = () => {
   return (
     <section className="mx-auto max-w-4xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">

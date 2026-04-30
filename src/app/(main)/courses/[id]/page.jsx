@@ -4,6 +4,42 @@ import { notFound } from "next/navigation";
 import Reveal from "@/components/shared/Reveal";
 import { getCourseById } from "@/lib/data-fetch";
 
+export async function generateMetadata({ params }) {
+  const resolvedParams = await params;
+  const rawId = resolvedParams?.id;
+
+  if (!rawId) {
+    return {
+      title: "Course details",
+      description: "Browse course syllabus, mentor info, and curriculum on SkillSphere.",
+    };
+  }
+
+  const course = await getCourseById(rawId);
+
+  if (!course) {
+    return {
+      title: "Course not found",
+      description: "This course does not exist or may have been removed.",
+    };
+  }
+
+  const description =
+    typeof course.description === "string"
+      ? course.description.replace(/\s+/g, " ").trim().slice(0, 160)
+      : `Learn "${course.title}" on SkillSphere.`;
+
+  return {
+    title: course.title,
+    description,
+    openGraph: {
+      title: course.title,
+      description,
+      images: [{ url: course.image, alt: course.title }],
+    },
+  };
+}
+
 const courseDetailsPage = async ({ params }) => {
   const resolvedParams = await params;
   const course = await getCourseById(resolvedParams?.id);
@@ -25,6 +61,7 @@ const courseDetailsPage = async ({ params }) => {
       <Link
         href="/courses"
         className="mb-5 inline-flex text-sm font-semibold text-slate-700 hover:text-slate-900"
+        aria-label="Back to all courses"
       >
         ← Back to courses
       </Link>

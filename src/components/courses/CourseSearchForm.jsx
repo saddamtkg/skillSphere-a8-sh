@@ -42,6 +42,7 @@ const CourseSearchForm = ({ initialSearch = "" }) => {
   return (
     <form
       onSubmit={handleSubmit}
+      aria-label="Search courses by title"
       className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm"
     >
       <label htmlFor="search" className="mb-2 block text-sm font-medium text-slate-700">

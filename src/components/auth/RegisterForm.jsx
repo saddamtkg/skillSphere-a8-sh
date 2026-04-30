@@ -50,7 +50,11 @@ const RegisterForm = () => {
         Create an Account
       </h1>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="mt-6 space-y-4">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        aria-label="Create SkillSphere account"
+        className="mt-6 space-y-4"
+      >
         <div>
           <label
             htmlFor="name"
@@ -62,6 +66,9 @@ const RegisterForm = () => {
             id="name"
             type="text"
             placeholder="Your full name"
+            aria-invalid={errors.name ? "true" : "false"}
+            aria-describedby={errors.name ? "register-name-error" : undefined}
+            autoComplete="name"
             className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-slate-500"
             {...register("name", {
               required: "Name is required.",
@@ -72,7 +79,9 @@ const RegisterForm = () => {
             })}
           />
           {errors.name && (
-            <p className="mt-1 text-xs text-red-600">{errors.name.message}</p>
+            <p id="register-name-error" role="alert" className="mt-1 text-xs text-red-600">
+              {errors.name.message}
+            </p>
           )}
         </div>
 
@@ -87,6 +96,9 @@ const RegisterForm = () => {
             id="email"
             type="email"
             placeholder="you@example.com"
+            aria-invalid={errors.email ? "true" : "false"}
+            aria-describedby={errors.email ? "register-email-error" : undefined}
+            autoComplete="email"
             className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-slate-500"
             {...register("email", {
               required: "Email is required.",
@@ -97,7 +109,9 @@ const RegisterForm = () => {
             })}
           />
           {errors.email && (
-            <p className="mt-1 text-xs text-red-600">{errors.email.message}</p>
+            <p id="register-email-error" role="alert" className="mt-1 text-xs text-red-600">
+              {errors.email.message}
+            </p>
           )}
         </div>
 
@@ -112,13 +126,18 @@ const RegisterForm = () => {
             id="image"
             type="url"
             placeholder="https://example.com/photo.jpg"
+            aria-invalid={errors.image ? "true" : "false"}
+            aria-describedby={errors.image ? "register-image-error" : undefined}
+            autoComplete="off"
             className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-slate-500"
             {...register("image", {
               required: "Photo URL is required.",
             })}
           />
           {errors.image && (
-            <p className="mt-1 text-xs text-red-600">{errors.image.message}</p>
+            <p id="register-image-error" role="alert" className="mt-1 text-xs text-red-600">
+              {errors.image.message}
+            </p>
           )}
         </div>
 
@@ -133,6 +152,9 @@ const RegisterForm = () => {
             id="password"
             type="password"
             placeholder="••••••••"
+            aria-invalid={errors.password ? "true" : "false"}
+            aria-describedby={errors.password ? "register-password-error" : undefined}
+            autoComplete="new-password"
             className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-slate-500"
             {...register("password", {
               required: "Password is required.",
@@ -143,13 +165,17 @@ const RegisterForm = () => {
             })}
           />
           {errors.password && (
-            <p className="mt-1 text-xs text-red-600">
+            <p id="register-password-error" role="alert" className="mt-1 text-xs text-red-600">
               {errors.password.message}
             </p>
           )}
         </div>
 
-        {serverError && <p className="text-sm text-red-600">{serverError}</p>}
+        {serverError && (
+          <p role="alert" className="text-sm text-red-600">
+            {serverError}
+          </p>
+        )}
 
         <button
           type="submit"

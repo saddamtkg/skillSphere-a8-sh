@@ -11,7 +11,9 @@ const MyProfilePage = () => {
   if (isPending) {
     return (
       <section className="flex min-h-[40vh] items-center justify-center">
-        <p className="text-sm font-medium text-slate-600">Loading profile...</p>
+        <p role="status" aria-live="polite" className="text-sm font-medium text-slate-600">
+          Loading profile...
+        </p>
       </section>
     );
   }

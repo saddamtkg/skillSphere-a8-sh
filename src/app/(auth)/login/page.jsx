@@ -1,6 +1,12 @@
 import LoginForm from "@/components/auth/LoginForm";
 import Reveal from "@/components/shared/Reveal";
 
+export const metadata = {
+  title: "Sign in",
+  description:
+    "Sign in to SkillSphere with your email and password to access courses, profile, and enrollment features.",
+};
+
 // Only relative in-app redirects (blocks open redirects like "//evil.com").
 const safeRedirectPath = (raw) => {
   if (raw == null || typeof raw !== "string") return "/";

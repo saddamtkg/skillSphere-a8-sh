@@ -42,9 +42,16 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/85 backdrop-blur-xl">
-      <nav className="c-container flex h-16 items-center justify-between">
-        <Link href="/" className="group inline-flex items-center gap-2">
-          <span className="rounded-xl bg-slate-900 p-2 text-white transition-transform duration-200 group-hover:scale-105">
+      <nav aria-label="Main" className="c-container flex h-16 items-center justify-between">
+        <Link
+          href="/"
+          className="group inline-flex items-center gap-2"
+          aria-label="SkillSphere · Home"
+        >
+          <span
+            aria-hidden
+            className="rounded-xl bg-slate-900 p-2 text-white transition-transform duration-200 group-hover:scale-105"
+          >
             <GraduationCap size={18} />
           </span>
           <span className="text-lg font-bold tracking-tight text-slate-900">
@@ -70,7 +77,9 @@ const Navbar = () => {
 
         <div className="hidden items-center gap-2 md:flex">
           {isPending ? (
-            <span className="text-xs font-medium text-slate-500">Loading...</span>
+            <span role="status" aria-live="polite" className="text-xs font-medium text-slate-500">
+              Loading session...
+            </span>
           ) : session?.user ? (
             <>
               <div className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5">
@@ -121,15 +130,18 @@ const Navbar = () => {
           type="button"
           className="inline-flex rounded-lg p-2 text-slate-700 transition-colors hover:bg-slate-100 md:hidden"
           onClick={() => setIsOpen((prev) => !prev)}
-          aria-label="Toggle navigation menu"
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-nav-panel"
         >
-          {isOpen ? <X size={22} /> : <Menu size={22} />}
+          {isOpen ? <X size={22} aria-hidden /> : <Menu size={22} aria-hidden />}
         </button>
       </nav>
 
       <AnimatePresence>
         {isOpen && (
           <motion.div
+            id="mobile-nav-panel"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
