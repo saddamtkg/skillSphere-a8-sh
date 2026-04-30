@@ -1,0 +1,303 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Complete Web Development Bootcamp",
+      "instructor": "John Doe",
+      "duration": "20 hours",
+      "rating": 4.8,
+      "level": "Beginner",
+      "description": "Learn full-stack web development from scratch with practical projects.",
+      "image": "https://i.postimg.cc/8Cw1vWfM/course-1.jpg",
+      "category": "Development"
+    },
+    {
+      "id": 2,
+      "title": "UI UX Design Masterclass",
+      "instructor": "Sarah Khan",
+      "duration": "15 hours",
+      "rating": 4.7,
+      "level": "Beginner",
+      "description": "Master design principles, wireframing, and prototyping for modern apps.",
+      "image": "https://i.postimg.cc/3r2X7w7N/course-2.jpg",
+      "category": "Design"
+    },
+    {
+      "id": 3,
+      "title": "Digital Marketing Strategy",
+      "instructor": "Alex Martin",
+      "duration": "18 hours",
+      "rating": 4.6,
+      "level": "Intermediate",
+      "description": "Build winning marketing campaigns using SEO, social media, and ads.",
+      "image": "https://i.postimg.cc/9Qp2H8pQ/course-3.jpg",
+      "category": "Marketing"
+    },
+    {
+      "id": 4,
+      "title": "Python for Data Analysis",
+      "instructor": "Emily Chen",
+      "duration": "22 hours",
+      "rating": 4.9,
+      "level": "Intermediate",
+      "description": "Analyze and visualize real-world datasets using Python and pandas.",
+      "image": "https://i.postimg.cc/fRBTfSCp/course-4.jpg",
+      "category": "Data Science"
+    },
+    {
+      "id": 5,
+      "title": "React and Next.js Fundamentals",
+      "instructor": "Michael Lee",
+      "duration": "16 hours",
+      "rating": 4.8,
+      "level": "Beginner",
+      "description": "Learn component-based development and build modern React apps.",
+      "image": "https://i.postimg.cc/4xTnBxG4/course-5.jpg",
+      "category": "Development"
+    },
+    {
+      "id": 6,
+      "title": "Advanced JavaScript Patterns",
+      "instructor": "Nadia Rahman",
+      "duration": "14 hours",
+      "rating": 4.7,
+      "level": "Advanced",
+      "description": "Deep dive into closures, prototypes, async patterns, and architecture.",
+      "image": "https://i.postimg.cc/gkRZz6fC/course-6.jpg",
+      "category": "Development"
+    },
+    {
+      "id": 7,
+      "title": "Motion Graphics Essentials",
+      "instructor": "David Wilson",
+      "duration": "12 hours",
+      "rating": 4.5,
+      "level": "Beginner",
+      "description": "Create engaging motion graphics for social media and branding.",
+      "image": "https://i.postimg.cc/sxkYk8hS/course-7.jpg",
+      "category": "Design"
+    },
+    {
+      "id": 8,
+      "title": "Product Management Basics",
+      "instructor": "Olivia Brown",
+      "duration": "11 hours",
+      "rating": 4.6,
+      "level": "Beginner",
+      "description": "Understand product lifecycle, roadmap planning, and stakeholder management.",
+      "image": "https://i.postimg.cc/BQx9j8nJ/course-8.jpg",
+      "category": "Business"
+    },
+    {
+      "id": 9,
+      "title": "SQL for Beginners",
+      "instructor": "Robert King",
+      "duration": "10 hours",
+      "rating": 4.4,
+      "level": "Beginner",
+      "description": "Learn SQL queries, joins, filtering, and database basics from zero.",
+      "image": "https://i.postimg.cc/W4V7xF5R/course-9.jpg",
+      "category": "Data Science"
+    },
+    {
+      "id": 10,
+      "title": "Cybersecurity Fundamentals",
+      "instructor": "Ayesha Noor",
+      "duration": "13 hours",
+      "rating": 4.7,
+      "level": "Intermediate",
+      "description": "Explore core security concepts, vulnerabilities, and protection methods.",
+      "image": "https://i.postimg.cc/jjJt4f0Y/course-10.jpg",
+      "category": "Security"
+    },
+    {
+      "id": 11,
+      "title": "Mobile App Design with Figma",
+      "instructor": "Kevin Scott",
+      "duration": "9 hours",
+      "rating": 4.5,
+      "level": "Intermediate",
+      "description": "Design responsive mobile UI screens and interactive prototypes in Figma.",
+      "image": "https://i.postimg.cc/JnV6Hg1f/course-11.jpg",
+      "category": "Design"
+    },
+    {
+      "id": 12,
+      "title": "Freelancing and Client Communication",
+      "instructor": "Farhana Islam",
+      "duration": "8 hours",
+      "rating": 4.6,
+      "level": "Beginner",
+      "description": "Learn how to find clients, write proposals, and deliver projects professionally.",
+      "image": "https://i.postimg.cc/QMzXgTf6/course-12.jpg",
+      "category": "Career"
+    }
+  ],
+  "instructors": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "title": "Senior Full Stack Developer",
+      "expertise": "Web Development",
+      "rating": 4.9,
+      "students": 3200,
+      "coursesCount": 4,
+      "image": "https://i.postimg.cc/Jn7J4R3F/instructor-1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Sarah Khan",
+      "title": "Lead UI UX Designer",
+      "expertise": "Product Design",
+      "rating": 4.8,
+      "students": 2800,
+      "coursesCount": 3,
+      "image": "https://i.postimg.cc/N0z1p3pG/instructor-2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Alex Martin",
+      "title": "Digital Marketing Consultant",
+      "expertise": "Marketing Strategy",
+      "rating": 4.7,
+      "students": 2500,
+      "coursesCount": 5,
+      "image": "https://i.postimg.cc/Fs9jK7dS/instructor-3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Emily Chen",
+      "title": "Data Scientist",
+      "expertise": "Data Analysis",
+      "rating": 4.9,
+      "students": 3000,
+      "coursesCount": 4,
+      "image": "https://i.postimg.cc/9QWg7ZyM/instructor-4.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Michael Lee",
+      "title": "Frontend Architect",
+      "expertise": "React and Next.js",
+      "rating": 4.8,
+      "students": 2700,
+      "coursesCount": 3,
+      "image": "https://i.postimg.cc/mD7f8SKf/instructor-5.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Nadia Rahman",
+      "title": "JavaScript Engineer",
+      "expertise": "Advanced JavaScript",
+      "rating": 4.7,
+      "students": 2300,
+      "coursesCount": 2,
+      "image": "https://i.postimg.cc/pX9d8g1h/instructor-6.jpg"
+    },
+    {
+      "id": 7,
+      "name": "David Wilson",
+      "title": "Creative Motion Designer",
+      "expertise": "Motion Graphics",
+      "rating": 4.6,
+      "students": 1900,
+      "coursesCount": 2,
+      "image": "https://i.postimg.cc/yYB6LQ9p/instructor-7.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Olivia Brown",
+      "title": "Product Manager",
+      "expertise": "Product Management",
+      "rating": 4.6,
+      "students": 2100,
+      "coursesCount": 3,
+      "image": "https://i.postimg.cc/65XW0z4v/instructor-8.jpg"
+    },
+    {
+      "id": 9,
+      "name": "Robert King",
+      "title": "Database Trainer",
+      "expertise": "SQL and Databases",
+      "rating": 4.5,
+      "students": 1800,
+      "coursesCount": 2,
+      "image": "https://i.postimg.cc/vZK3wN6Y/instructor-9.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Ayesha Noor",
+      "title": "Cybersecurity Analyst",
+      "expertise": "Network Security",
+      "rating": 4.7,
+      "students": 2200,
+      "coursesCount": 3,
+      "image": "https://i.postimg.cc/7Lr1X6jQ/instructor-10.jpg"
+    },
+    {
+      "id": 11,
+      "name": "Kevin Scott",
+      "title": "Figma Design Specialist",
+      "expertise": "Mobile App UI",
+      "rating": 4.6,
+      "students": 2000,
+      "coursesCount": 2,
+      "image": "https://i.postimg.cc/Hk9Lb0Gg/instructor-11.jpg"
+    },
+    {
+      "id": 12,
+      "name": "Farhana Islam",
+      "title": "Freelance Career Mentor",
+      "expertise": "Client Communication",
+      "rating": 4.8,
+      "students": 2600,
+      "coursesCount": 4,
+      "image": "https://i.postimg.cc/yd9JXJvb/instructor-12.jpg"
+    }
+  ],
+  "heroSlides": [
+    {
+      "id": 1,
+      "title": "Upgrade Your Skills Today",
+      "subtitle": "Learn from industry experts and build your career.",
+      "image": "https://i.postimg.cc/PxGN8Y9J/hero-1.jpg",
+      "ctaText": "Explore Courses"
+    },
+    {
+      "id": 2,
+      "title": "Learn by Building Projects",
+      "subtitle": "Hands-on learning paths for modern tech skills.",
+      "image": "https://i.postimg.cc/MZR9P2fM/hero-2.jpg",
+      "ctaText": "Start Learning"
+    },
+    {
+      "id": 3,
+      "title": "Become Job Ready Faster",
+      "subtitle": "Structured courses designed for real-world outcomes.",
+      "image": "https://i.postimg.cc/NfSx4YvV/hero-3.jpg",
+      "ctaText": "Join SkillSphere"
+    }
+  ],
+  "learningTips": [
+    {
+      "id": 1,
+      "title": "Set Weekly Learning Goals",
+      "description": "Plan small achievable goals every week and track your progress."
+    },
+    {
+      "id": 2,
+      "title": "Practice with Real Projects",
+      "description": "Apply concepts to projects so you remember and understand better."
+    },
+    {
+      "id": 3,
+      "title": "Use the Pomodoro Method",
+      "description": "Study in focused sessions with short breaks to avoid burnout."
+    },
+    {
+      "id": 4,
+      "title": "Revise Before New Lessons",
+      "description": "Quick revision improves retention and prepares your mind for new topics."
+    }
+  ]
+}
