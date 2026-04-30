@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import Reveal from "@/components/shared/Reveal";
 import { getCourseById } from "@/lib/data-fetch";
 
 const courseDetailsPage = async ({ params }) => {
@@ -28,7 +29,8 @@ const courseDetailsPage = async ({ params }) => {
         ← Back to courses
       </Link>
 
-      <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <Reveal>
+        <article className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         <div className="relative h-56 w-full md:h-80">
           <Image
             src={course.image}
@@ -63,7 +65,8 @@ const courseDetailsPage = async ({ params }) => {
             </ul>
           </div>
         </div>
-      </article>
+        </article>
+      </Reveal>
     </section>
   );
 };

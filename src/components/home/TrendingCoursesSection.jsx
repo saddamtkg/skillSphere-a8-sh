@@ -1,8 +1,9 @@
 import Link from "next/link";
+import Reveal from "@/components/shared/Reveal";
 
 const TrendingCoursesSection = ({ courses = [] }) => {
   return (
-    <section className="mb-4 mt-12 rounded-2xl border border-slate-200 bg-slate-900 p-6 text-white shadow-sm md:p-8">
+    <Reveal className="mb-4 mt-12 rounded-2xl border border-slate-200 bg-slate-900 p-6 text-white shadow-sm md:p-8">
       <p className="text-sm font-semibold uppercase tracking-wide text-slate-300">
         Trending
       </p>
@@ -27,7 +28,7 @@ const TrendingCoursesSection = ({ courses = [] }) => {
           </div>
         ))}
       </div>
-    </section>
+    </Reveal>
   );
 };
 

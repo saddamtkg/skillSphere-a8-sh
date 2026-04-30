@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Reveal from "@/components/shared/Reveal";
 
 const TopInstructorsSection = ({ instructors = [] }) => {
   return (
-    <section className="mt-12">
+    <Reveal className="mt-12">
       <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
         Top Instructors
       </p>
@@ -40,7 +41,7 @@ const TopInstructorsSection = ({ instructors = [] }) => {
           </article>
         ))}
       </div>
-    </section>
+    </Reveal>
   );
 };
 

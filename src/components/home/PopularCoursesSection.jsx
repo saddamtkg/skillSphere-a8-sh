@@ -1,10 +1,11 @@
 import Link from "next/link";
 import CourseCard from "@/components/courses/CourseCard";
+import Reveal from "@/components/shared/Reveal";
 
 const PopularCoursesSection = ({ courses = [] }) => {
   return (
     <section className="mt-12">
-      <div className="mb-6 flex items-end justify-between gap-4">
+      <Reveal className="mb-6 flex items-end justify-between gap-4">
         <div>
           <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
             Popular Courses
@@ -19,7 +20,7 @@ const PopularCoursesSection = ({ courses = [] }) => {
         >
           View all
         </Link>
-      </div>
+      </Reveal>
 
       <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {courses.map((course) => (

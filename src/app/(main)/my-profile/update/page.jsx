@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { authClient, useSession } from "@/lib/auth-client";
+import Reveal from "@/components/shared/Reveal";
 
 const UpdateProfilePage = () => {
   const router = useRouter();
@@ -91,7 +92,7 @@ const UpdateProfilePage = () => {
   }
 
   return (
-    <section className="mx-auto max-w-xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+    <Reveal className="mx-auto max-w-xl rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
       <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
         Update Profile
       </p>
@@ -150,7 +151,7 @@ const UpdateProfilePage = () => {
           </Link>
         </div>
       </form>
-    </section>
+    </Reveal>
   );
 };
 

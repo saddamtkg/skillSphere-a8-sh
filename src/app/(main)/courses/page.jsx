@@ -1,4 +1,5 @@
 import CourseCard from "@/components/courses/CourseCard";
+import Reveal from "@/components/shared/Reveal";
 import { getAllCourses } from "@/lib/data-fetch";
 
 const coursesPage = async ({ searchParams }) => {
@@ -13,7 +14,7 @@ const coursesPage = async ({ searchParams }) => {
 
   return (
     <section className="mt-2">
-      <div className="mb-6 grid gap-4 lg:grid-cols-2">
+      <Reveal className="mb-6 grid gap-4 lg:grid-cols-2">
         <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
           <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
             All Courses
@@ -49,7 +50,7 @@ const coursesPage = async ({ searchParams }) => {
             </button>
           </div>
         </form>
-      </div>
+      </Reveal>
 
       {filteredCourses.length ? (
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">

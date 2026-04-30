@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useSession } from "@/lib/auth-client";
+import Reveal from "@/components/shared/Reveal";
 
 const MyProfilePage = () => {
   const { data: session, isPending } = useSession();
@@ -36,7 +37,8 @@ const MyProfilePage = () => {
 
   return (
     <section className="mx-auto max-w-3xl">
-      <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+      <Reveal>
+        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
         <div className="bg-slate-900/95 px-6 py-8 text-white md:px-8">
           <p className="text-xs font-semibold uppercase tracking-wide text-slate-300">
             My Profile
@@ -96,7 +98,8 @@ const MyProfilePage = () => {
             Update Information
           </Link>
         </div>
-      </div>
+        </div>
+      </Reveal>
     </section>
   );
 };
