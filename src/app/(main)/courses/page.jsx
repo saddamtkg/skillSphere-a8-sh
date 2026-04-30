@@ -1,4 +1,5 @@
 import CourseCard from "@/components/courses/CourseCard";
+import CourseSearchForm from "@/components/courses/CourseSearchForm";
 import Reveal from "@/components/shared/Reveal";
 import { getAllCourses } from "@/lib/data-fetch";
 
@@ -27,29 +28,7 @@ const coursesPage = async ({ searchParams }) => {
           </p>
         </div>
 
-        <form className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <label
-            htmlFor="search"
-            className="mb-2 block text-sm font-medium text-slate-700"
-          >
-            Search by course title
-          </label>
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <input
-              id="search"
-              name="search"
-              defaultValue={resolvedSearchParams?.search || ""}
-              placeholder="Type course title..."
-              className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-slate-500"
-            />
-            <button
-              type="submit"
-              className="rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-slate-800"
-            >
-              Search
-            </button>
-          </div>
-        </form>
+        <CourseSearchForm />
       </Reveal>
 
       {filteredCourses.length ? (
