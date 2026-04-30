@@ -1,7 +1,26 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
 @utility c-container{
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+.hero-slider .swiper-pagination {
+  bottom: 62px !important;
+}
+
+.hero-slider .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.45);
+  opacity: 1;
+  transition: all 0.2s ease;
+}
+
+.hero-slider .swiper-pagination-bullet-active {
+  width: 26px;
+  border-radius: 9999px;
+  background: #ffffff;
 }

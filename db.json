@@ -8,7 +8,7 @@
       "rating": 4.8,
       "level": "Beginner",
       "description": "Learn full-stack web development from scratch with practical projects.",
-      "image": "https://i.postimg.cc/8Cw1vWfM/course-1.jpg",
+      "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
       "category": "Development"
     },
     {
@@ -19,7 +19,7 @@
       "rating": 4.7,
       "level": "Beginner",
       "description": "Master design principles, wireframing, and prototyping for modern apps.",
-      "image": "https://i.postimg.cc/3r2X7w7N/course-2.jpg",
+      "image": "https://images.unsplash.com/photo-1559028012-481c04fa702d",
       "category": "Design"
     },
     {
@@ -30,7 +30,7 @@
       "rating": 4.6,
       "level": "Intermediate",
       "description": "Build winning marketing campaigns using SEO, social media, and ads.",
-      "image": "https://i.postimg.cc/9Qp2H8pQ/course-3.jpg",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f",
       "category": "Marketing"
     },
     {
@@ -41,7 +41,7 @@
       "rating": 4.9,
       "level": "Intermediate",
       "description": "Analyze and visualize real-world datasets using Python and pandas.",
-      "image": "https://i.postimg.cc/fRBTfSCp/course-4.jpg",
+      "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
       "category": "Data Science"
     },
     {
@@ -52,7 +52,7 @@
       "rating": 4.8,
       "level": "Beginner",
       "description": "Learn component-based development and build modern React apps.",
-      "image": "https://i.postimg.cc/4xTnBxG4/course-5.jpg",
+      "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee",
       "category": "Development"
     },
     {
@@ -63,7 +63,7 @@
       "rating": 4.7,
       "level": "Advanced",
       "description": "Deep dive into closures, prototypes, async patterns, and architecture.",
-      "image": "https://i.postimg.cc/gkRZz6fC/course-6.jpg",
+      "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c",
       "category": "Development"
     },
     {
@@ -74,7 +74,7 @@
       "rating": 4.5,
       "level": "Beginner",
       "description": "Create engaging motion graphics for social media and branding.",
-      "image": "https://i.postimg.cc/sxkYk8hS/course-7.jpg",
+      "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
       "category": "Design"
     },
     {
@@ -85,7 +85,7 @@
       "rating": 4.6,
       "level": "Beginner",
       "description": "Understand product lifecycle, roadmap planning, and stakeholder management.",
-      "image": "https://i.postimg.cc/BQx9j8nJ/course-8.jpg",
+      "image": "https://images.unsplash.com/photo-1559027615-cd4628902d4a",
       "category": "Business"
     },
     {
@@ -96,7 +96,7 @@
       "rating": 4.4,
       "level": "Beginner",
       "description": "Learn SQL queries, joins, filtering, and database basics from zero.",
-      "image": "https://i.postimg.cc/W4V7xF5R/course-9.jpg",
+      "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d",
       "category": "Data Science"
     },
     {
@@ -107,7 +107,7 @@
       "rating": 4.7,
       "level": "Intermediate",
       "description": "Explore core security concepts, vulnerabilities, and protection methods.",
-      "image": "https://i.postimg.cc/jjJt4f0Y/course-10.jpg",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b",
       "category": "Security"
     },
     {
@@ -118,7 +118,7 @@
       "rating": 4.5,
       "level": "Intermediate",
       "description": "Design responsive mobile UI screens and interactive prototypes in Figma.",
-      "image": "https://i.postimg.cc/JnV6Hg1f/course-11.jpg",
+      "image": "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c",
       "category": "Design"
     },
     {
@@ -129,7 +129,7 @@
       "rating": 4.6,
       "level": "Beginner",
       "description": "Learn how to find clients, write proposals, and deliver projects professionally.",
-      "image": "https://i.postimg.cc/QMzXgTf6/course-12.jpg",
+      "image": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d",
       "category": "Career"
     }
   ],
@@ -142,7 +142,7 @@
       "rating": 4.9,
       "students": 3200,
       "coursesCount": 4,
-      "image": "https://i.postimg.cc/Jn7J4R3F/instructor-1.jpg"
+      "image": "https://randomuser.me/api/portraits/men/1.jpg"
     },
     {
       "id": 2,
@@ -152,7 +152,7 @@
       "rating": 4.8,
       "students": 2800,
       "coursesCount": 3,
-      "image": "https://i.postimg.cc/N0z1p3pG/instructor-2.jpg"
+      "image": "https://randomuser.me/api/portraits/women/2.jpg"
     },
     {
       "id": 3,
@@ -162,7 +162,7 @@
       "rating": 4.7,
       "students": 2500,
       "coursesCount": 5,
-      "image": "https://i.postimg.cc/Fs9jK7dS/instructor-3.jpg"
+      "image": "https://randomuser.me/api/portraits/men/3.jpg"
     },
     {
       "id": 4,
@@ -172,7 +172,7 @@
       "rating": 4.9,
       "students": 3000,
       "coursesCount": 4,
-      "image": "https://i.postimg.cc/9QWg7ZyM/instructor-4.jpg"
+      "image": "https://randomuser.me/api/portraits/women/4.jpg"
     },
     {
       "id": 5,
@@ -182,7 +182,7 @@
       "rating": 4.8,
       "students": 2700,
       "coursesCount": 3,
-      "image": "https://i.postimg.cc/mD7f8SKf/instructor-5.jpg"
+      "image": "https://randomuser.me/api/portraits/men/5.jpg"
     },
     {
       "id": 6,
@@ -192,67 +192,7 @@
       "rating": 4.7,
       "students": 2300,
       "coursesCount": 2,
-      "image": "https://i.postimg.cc/pX9d8g1h/instructor-6.jpg"
-    },
-    {
-      "id": 7,
-      "name": "David Wilson",
-      "title": "Creative Motion Designer",
-      "expertise": "Motion Graphics",
-      "rating": 4.6,
-      "students": 1900,
-      "coursesCount": 2,
-      "image": "https://i.postimg.cc/yYB6LQ9p/instructor-7.jpg"
-    },
-    {
-      "id": 8,
-      "name": "Olivia Brown",
-      "title": "Product Manager",
-      "expertise": "Product Management",
-      "rating": 4.6,
-      "students": 2100,
-      "coursesCount": 3,
-      "image": "https://i.postimg.cc/65XW0z4v/instructor-8.jpg"
-    },
-    {
-      "id": 9,
-      "name": "Robert King",
-      "title": "Database Trainer",
-      "expertise": "SQL and Databases",
-      "rating": 4.5,
-      "students": 1800,
-      "coursesCount": 2,
-      "image": "https://i.postimg.cc/vZK3wN6Y/instructor-9.jpg"
-    },
-    {
-      "id": 10,
-      "name": "Ayesha Noor",
-      "title": "Cybersecurity Analyst",
-      "expertise": "Network Security",
-      "rating": 4.7,
-      "students": 2200,
-      "coursesCount": 3,
-      "image": "https://i.postimg.cc/7Lr1X6jQ/instructor-10.jpg"
-    },
-    {
-      "id": 11,
-      "name": "Kevin Scott",
-      "title": "Figma Design Specialist",
-      "expertise": "Mobile App UI",
-      "rating": 4.6,
-      "students": 2000,
-      "coursesCount": 2,
-      "image": "https://i.postimg.cc/Hk9Lb0Gg/instructor-11.jpg"
-    },
-    {
-      "id": 12,
-      "name": "Farhana Islam",
-      "title": "Freelance Career Mentor",
-      "expertise": "Client Communication",
-      "rating": 4.8,
-      "students": 2600,
-      "coursesCount": 4,
-      "image": "https://i.postimg.cc/yd9JXJvb/instructor-12.jpg"
+      "image": "https://randomuser.me/api/portraits/women/6.jpg"
     }
   ],
   "heroSlides": [
@@ -260,22 +200,43 @@
       "id": 1,
       "title": "Upgrade Your Skills Today",
       "subtitle": "Learn from industry experts and build your career.",
-      "image": "https://i.postimg.cc/PxGN8Y9J/hero-1.jpg",
+      "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
       "ctaText": "Explore Courses"
     },
     {
       "id": 2,
       "title": "Learn by Building Projects",
       "subtitle": "Hands-on learning paths for modern tech skills.",
-      "image": "https://i.postimg.cc/MZR9P2fM/hero-2.jpg",
+      "image": "https://images.unsplash.com/photo-1492724441997-5dc865305da7",
       "ctaText": "Start Learning"
     },
     {
       "id": 3,
       "title": "Become Job Ready Faster",
       "subtitle": "Structured courses designed for real-world outcomes.",
-      "image": "https://i.postimg.cc/NfSx4YvV/hero-3.jpg",
+      "image": "https://images.unsplash.com/photo-1501504905252-473c47e087f8",
       "ctaText": "Join SkillSphere"
+    },
+    {
+      "id": 4,
+      "title": "Master In-Demand Skills",
+      "subtitle": "Stay ahead with industry-relevant courses.",
+      "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+      "ctaText": "Browse Skills"
+    },
+    {
+      "id": 5,
+      "title": "Learn Anytime Anywhere",
+      "subtitle": "Access courses from any device at your convenience.",
+      "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4",
+      "ctaText": "Get Started"
+    },
+    {
+      "id": 6,
+      "title": "Join a Learning Community",
+      "subtitle": "Collaborate and grow with other learners.",
+      "image": "https://images.unsplash.com/photo-1523580494863-6f3031224c94",
+      "ctaText": "Join Now"
     }
   ],
   "learningTips": [
@@ -298,6 +259,16 @@
       "id": 4,
       "title": "Revise Before New Lessons",
       "description": "Quick revision improves retention and prepares your mind for new topics."
+    },
+    {
+      "id": 5,
+      "title": "Teach What You Learn",
+      "description": "Explaining concepts to others strengthens your understanding."
+    },
+    {
+      "id": 6,
+      "title": "Stay Consistent",
+      "description": "Learning a little every day is better than cramming occasionally."
     }
   ]
 }

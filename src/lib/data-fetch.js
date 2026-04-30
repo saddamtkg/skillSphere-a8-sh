@@ -3,12 +3,13 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 // This helper handles all common fetch logic.
 const requestJson = async (endpoint, options = {}) => {
   const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+    cache: "force-cache",
+    next: { revalidate: 120 },
     ...options,
     headers: {
       "Content-Type": "application/json",
       ...(options.headers || {}),
     },
-    cache: "no-store",
   });
 
   if (!response.ok) {
@@ -31,8 +32,24 @@ export const searchCoursesByTitle = async (searchText) => {
 
 // Get one course by id.
 export const getCourseById = async (courseId) => {
-  const result = await requestJson(`/courses/${courseId}`);
-  return result || null;
+  const response = await fetch(`${API_BASE_URL}/courses/${courseId}`, {
+    cache: "force-cache",
+    next: { revalidate: 120 },
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  // This returns null if course id is not found.
+  if (response.status === 404) {
+    return null;
+  }
+
+  if (!response.ok) {
+    throw new Error(`Request failed: ${response.status} ${response.statusText}`);
+  }
+
+  return response.json();
 };
 
 // Get top rated courses for popular section.
