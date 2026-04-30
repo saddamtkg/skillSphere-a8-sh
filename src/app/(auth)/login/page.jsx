@@ -11,11 +11,12 @@ const loginFormFallback = (
 const loginPage = () => {
   return (
     <section className="c-container flex min-h-[calc(100vh-80px)] items-center justify-center py-10">
-      <Reveal>
-        <Suspense fallback={loginFormFallback}>
+      {/* Suspense must sit in the server page tree, not inside client `Reveal`. */}
+      <Suspense fallback={loginFormFallback}>
+        <Reveal>
           <LoginForm />
-        </Suspense>
-      </Reveal>
+        </Reveal>
+      </Suspense>
     </section>
   );
 };

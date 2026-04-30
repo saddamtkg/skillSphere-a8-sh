@@ -22,23 +22,26 @@ const coursesPage = async ({ searchParams }) => {
 
   return (
     <section className="mt-2">
-      <Reveal className="mb-6 grid gap-4 lg:grid-cols-2">
-        <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
-            All Courses
-          </p>
-          <h1 className="mt-1 text-3xl font-bold text-slate-900 md:text-4xl">
-            Explore SkillSphere Courses
-          </h1>
-          <p className="mt-2 text-sm text-slate-600">
-            Browse every course and find the right learning path for your goal.
-          </p>
-        </div>
+      <div className="mb-6 grid gap-4 lg:grid-cols-2">
+        <Reveal>
+          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+            <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
+              All Courses
+            </p>
+            <h1 className="mt-1 text-3xl font-bold text-slate-900 md:text-4xl">
+              Explore SkillSphere Courses
+            </h1>
+            <p className="mt-2 text-sm text-slate-600">
+              Browse every course and find the right learning path for your goal.
+            </p>
+          </div>
+        </Reveal>
 
+        {/* Same rule as login: keep Suspense under the server segment, outside client `Reveal`. */}
         <Suspense fallback={courseSearchFallback}>
           <CourseSearchForm />
         </Suspense>
-      </Reveal>
+      </div>
 
       {filteredCourses.length ? (
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
