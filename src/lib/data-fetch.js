@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://skillsphere-server-sh.onrender.com";
 
 // This helper handles all common fetch logic.
 const requestJson = async (endpoint, options = {}) => {
