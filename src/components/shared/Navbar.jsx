@@ -1,10 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { Menu, X, GraduationCap } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import toast from "react-hot-toast";
+import { signOut, useSession } from "@/lib/auth-client";
+import Image from "next/image";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -13,13 +16,28 @@ const navLinks = [
 ];
 
 const Navbar = () => {
+  const router = useRouter();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const { data: session, isPending } = useSession();
 
   // This checks if a link is active.
   const isActive = (href) => {
     if (href === "/") return pathname === "/";
     return pathname?.startsWith(href);
+  };
+
+  // This handles user logout.
+  const handleLogout = async () => {
+    const result = await signOut();
+    if (result?.error) {
+      toast.error(result.error.message || "Logout failed. Please try again.");
+      return;
+    }
+
+    toast.success("Logged out successfully!");
+    router.push("/login");
+    router.refresh();
   };
 
   return (
@@ -51,18 +69,52 @@ const Navbar = () => {
         </div>
 
         <div className="hidden items-center gap-2 md:flex">
-          <Link
-            href="/login"
-            className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition-colors duration-200 hover:border-slate-900 hover:text-slate-900"
-          >
-            Login
-          </Link>
-          <Link
-            href="/register"
-            className="rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-800"
-          >
-            Register
-          </Link>
+          {isPending ? (
+            <span className="text-xs font-medium text-slate-500">Loading...</span>
+          ) : session?.user ? (
+            <>
+              <div className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5">
+                {session.user.image ? (
+                  <Image
+                    src={session.user.image}
+                    alt={session.user.name || "User"}
+                    width={28}
+                    height={28}
+                    className="h-7 w-7 rounded-full object-cover"
+                  />
+                ) : (
+                  <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-slate-900 text-xs font-semibold text-white">
+                    {session.user.name?.charAt(0)?.toUpperCase() || "U"}
+                  </span>
+                )}
+                <span className="max-w-[120px] truncate text-xs font-semibold text-slate-700">
+                  {session.user.name || "User"}
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition-colors duration-200 hover:border-slate-900 hover:text-slate-900"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
+                href="/login"
+                className="rounded-full border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition-colors duration-200 hover:border-slate-900 hover:text-slate-900"
+              >
+                Login
+              </Link>
+              <Link
+                href="/register"
+                className="rounded-full bg-slate-900 px-4 py-2 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-800"
+              >
+                Register
+              </Link>
+            </>
+          )}
         </div>
 
         <button
@@ -100,20 +152,35 @@ const Navbar = () => {
                 </Link>
               ))}
               <div className="mt-2 flex gap-2">
-                <Link
-                  href="/login"
-                  onClick={() => setIsOpen(false)}
-                  className="w-full rounded-lg border border-slate-300 px-3 py-2 text-center text-sm font-medium text-slate-700"
-                >
-                  Login
-                </Link>
-                <Link
-                  href="/register"
-                  onClick={() => setIsOpen(false)}
-                  className="w-full rounded-lg bg-slate-900 px-3 py-2 text-center text-sm font-medium text-white"
-                >
-                  Register
-                </Link>
+                {session?.user ? (
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      setIsOpen(false);
+                      await handleLogout();
+                    }}
+                    className="w-full rounded-lg border border-slate-300 px-3 py-2 text-center text-sm font-medium text-slate-700"
+                  >
+                    Logout
+                  </button>
+                ) : (
+                  <>
+                    <Link
+                      href="/login"
+                      onClick={() => setIsOpen(false)}
+                      className="w-full rounded-lg border border-slate-300 px-3 py-2 text-center text-sm font-medium text-slate-700"
+                    >
+                      Login
+                    </Link>
+                    <Link
+                      href="/register"
+                      onClick={() => setIsOpen(false)}
+                      className="w-full rounded-lg bg-slate-900 px-3 py-2 text-center text-sm font-medium text-white"
+                    >
+                      Register
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </motion.div>

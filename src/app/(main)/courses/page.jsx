@@ -39,7 +39,7 @@ const coursesPage = async ({ searchParams }) => {
               name="search"
               defaultValue={resolvedSearchParams?.search || ""}
               placeholder="Type course title..."
-              className="w-full rounded-xl border border-slate-300 px-4 py-2.5 text-sm outline-none transition-colors focus:border-slate-500"
+              className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-slate-500"
             />
             <button
               type="submit"
