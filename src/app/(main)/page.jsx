@@ -4,11 +4,10 @@ import PopularCoursesSection from "@/components/home/PopularCoursesSection";
 import TopInstructorsSection from "@/components/home/TopInstructorsSection";
 import TrendingCoursesSection from "@/components/home/TrendingCoursesSection";
 import {
+  getAllCourses,
   getHeroSlides,
   getLearningTips,
-  getPopularCourses,
   getTopInstructors,
-  getTrendingCourses,
 } from "@/lib/data-fetch";
 
 export const metadata = {
@@ -18,11 +17,16 @@ export const metadata = {
 };
 
 const homePage = async () => {
-  const heroSlides = await getHeroSlides();
-  const popularCourses = await getPopularCourses(3);
-  const learningTips = await getLearningTips();
-  const topInstructors = await getTopInstructors(4);
-  const trendingCourses = await getTrendingCourses(4);
+  const [heroSlides, courses, learningTips, topInstructors] = await Promise.all([
+    getHeroSlides(),
+    getAllCourses(),
+    getLearningTips(),
+    getTopInstructors(4),
+  ]);
+
+  const sortedCourses = [...courses].sort((a, b) => b.rating - a.rating);
+  const popularCourses = sortedCourses.slice(0, 3);
+  const trendingCourses = sortedCourses.slice(0, 4);
 
   return (
     <div>

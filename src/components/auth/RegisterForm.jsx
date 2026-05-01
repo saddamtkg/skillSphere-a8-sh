@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import SocialAuthButtons from "./SocialAuthButtons";
 
 const RegisterForm = () => {
   const router = useRouter();
@@ -79,7 +80,11 @@ const RegisterForm = () => {
             })}
           />
           {errors.name && (
-            <p id="register-name-error" role="alert" className="mt-1 text-xs text-red-600">
+            <p
+              id="register-name-error"
+              role="alert"
+              className="mt-1 text-xs text-red-600"
+            >
               {errors.name.message}
             </p>
           )}
@@ -109,7 +114,11 @@ const RegisterForm = () => {
             })}
           />
           {errors.email && (
-            <p id="register-email-error" role="alert" className="mt-1 text-xs text-red-600">
+            <p
+              id="register-email-error"
+              role="alert"
+              className="mt-1 text-xs text-red-600"
+            >
               {errors.email.message}
             </p>
           )}
@@ -135,7 +144,11 @@ const RegisterForm = () => {
             })}
           />
           {errors.image && (
-            <p id="register-image-error" role="alert" className="mt-1 text-xs text-red-600">
+            <p
+              id="register-image-error"
+              role="alert"
+              className="mt-1 text-xs text-red-600"
+            >
               {errors.image.message}
             </p>
           )}
@@ -153,7 +166,9 @@ const RegisterForm = () => {
             type="password"
             placeholder="••••••••"
             aria-invalid={errors.password ? "true" : "false"}
-            aria-describedby={errors.password ? "register-password-error" : undefined}
+            aria-describedby={
+              errors.password ? "register-password-error" : undefined
+            }
             autoComplete="new-password"
             className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-slate-500"
             {...register("password", {
@@ -165,7 +180,11 @@ const RegisterForm = () => {
             })}
           />
           {errors.password && (
-            <p id="register-password-error" role="alert" className="mt-1 text-xs text-red-600">
+            <p
+              id="register-password-error"
+              role="alert"
+              className="mt-1 text-xs text-red-600"
+            >
               {errors.password.message}
             </p>
           )}
@@ -185,6 +204,7 @@ const RegisterForm = () => {
           {isSubmitting ? "Creating account..." : "Register"}
         </button>
       </form>
+      <SocialAuthButtons disabled={isSubmitting} />
 
       <p className="mt-5 text-center text-sm text-slate-600">
         Already have an account?{" "}

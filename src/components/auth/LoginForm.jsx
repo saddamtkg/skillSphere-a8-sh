@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { signIn } from "@/lib/auth-client";
+import SocialAuthButtons from "./SocialAuthButtons";
 
 const LoginForm = ({ redirectPath = "/" }) => {
   const router = useRouter();
@@ -120,6 +121,7 @@ const LoginForm = ({ redirectPath = "/" }) => {
           {isSubmitting ? "Logging in..." : "Login"}
         </button>
       </form>
+      <SocialAuthButtons disabled={isSubmitting} />
 
       <p className="mt-5 text-center text-sm text-slate-600">
         Don&apos;t have an account?{" "}

@@ -1,3 +1,5 @@
+import { cache } from "react";
+
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://skillsphere-server-sh.onrender.com";
 
 // This helper handles all common fetch logic.
@@ -31,7 +33,7 @@ export const searchCoursesByTitle = async (searchText) => {
 };
 
 // Get one course by id.
-export const getCourseById = async (courseId) => {
+export const getCourseById = cache(async (courseId) => {
   const response = await fetch(`${API_BASE_URL}/courses/${courseId}`, {
     cache: "force-cache",
     next: { revalidate: 120 },
@@ -50,7 +52,7 @@ export const getCourseById = async (courseId) => {
   }
 
   return response.json();
-};
+});
 
 // Get top rated courses for popular section.
 export const getPopularCourses = async (limit = 3) => {
