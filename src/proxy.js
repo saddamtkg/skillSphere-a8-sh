@@ -13,8 +13,11 @@ export const proxy = (request) => {
   const { pathname, search } = request.nextUrl;
   const isLoggedIn = hasAuthSession(request);
 
-  const isCoursesPath = pathname === "/courses" || pathname.startsWith("/courses/");
-  const isProtectedPath = pathname.startsWith("/my-profile") || isCoursesPath;
+  // Listing stays public per assignment ("All Courses" without login).
+  // Only dynamic detail routes `/courses/[id]` require authentication.
+  const isCourseDetailPath = /^\/courses\/[^/]+$/.test(pathname);
+  const isProtectedPath =
+    pathname.startsWith("/my-profile") || isCourseDetailPath;
 
   const isAuthPath = authPaths.some((path) => pathname.startsWith(path));
 
@@ -34,5 +37,11 @@ export const proxy = (request) => {
 };
 
 export const config = {
-  matcher: ["/courses/:path*", "/my-profile/:path*", "/login", "/register"],
+  matcher: [
+    "/courses",
+    "/courses/:path*",
+    "/my-profile/:path*",
+    "/login",
+    "/register",
+  ],
 };

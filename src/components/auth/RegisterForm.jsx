@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import PasswordInputWithToggle from "./PasswordInputWithToggle";
 import SocialAuthButtons from "./SocialAuthButtons";
 
 const RegisterForm = () => {
@@ -161,17 +162,14 @@ const RegisterForm = () => {
           >
             Password
           </label>
-          <input
+          <PasswordInputWithToggle
             id="password"
-            type="password"
-            placeholder="••••••••"
             aria-invalid={errors.password ? "true" : "false"}
             aria-describedby={
               errors.password ? "register-password-error" : undefined
             }
             autoComplete="new-password"
-            className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 outline-none transition-colors focus:border-slate-500"
-            {...register("password", {
+            registerProps={register("password", {
               required: "Password is required.",
               minLength: {
                 value: 6,

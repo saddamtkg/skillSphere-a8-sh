@@ -1,33 +1,65 @@
 # SkillSphere
 
-SkillSphere is an online learning platform where users can explore courses, view details, and manage profiles with authentication.
+SkillSphere is an online learning demo where learners browse courses, open course details (protected), and maintain a profile—with email/password login, optional Google and GitHub sign-in via Better Auth (MongoDB), and a configurable public course API (`NEXT_PUBLIC_API_URL`).
 
 ## Live URL
 
-Add your deployed URL:
+Set your deployed site (example placeholder):
 
-- Production: `https://your-domain.vercel.app`
+- Production: `https://skill-sphere-a8-sh.vercel.app` _(replace with your domain)_
 
-## Core Features
+---
+
+## Quick site review
+
+| Area | What you get |
+|------|----------------|
+| **Home** | Hero slider, curated sections (popular/trending), instructors spotlight, tips. |
+| **Courses** | Listing with server-side-friendly data fetch, optional search/filter patterns. |
+| **Course detail** | Dynamic route `[id]`; access gated via auth middleware proxy. |
+| **Auth** | Login & register (`react-hook-form`), email/password validation, password **show/hide** (eye icon), Google/GitHub tiles. |
+| **Profile** | View + update flow for signed-in users. |
+| **Polish** | Custom `404`, loading UI, metadata helpers, `next/image` with remote hosts for courses + OAuth avatars. |
+
+**Suggested manual QA:** register → login → open a course → edit profile → try social login on prod with **OAuth env vars scoped to Production** on Vercel (not Preview-only).
+
+---
+
+## Optimization scorecard (estimated)
+
+These are **rough targets** for a production Lighthouse run (Chrome DevTools → Lighthouse → Mobile, clear cache). Exact numbers depend on network, CDN, Render API latency for `NEXT_PUBLIC_API_URL`, and deployed region.
+
+| Category | Estimated range | Notes for this codebase |
+|---------|----------------|-------------------------|
+| **Performance** | ~78–92 | Next.js App Router + static/dynamic split; hero Swiper/Image cost varies; JSON API latency is the main bottleneck. |
+| **Accessibility** | ~90–98 | Form labels, `aria-invalid`/errors, `#main-content` landmark, toggle button with accessible name for password visibility. |
+| **Best Practices** | ~92–100 | HTTPS on Vercel; cookies handled by Better Auth; keep secrets server-only (`BETTER_AUTH_SECRET`, OAuth secrets never `NEXT_PUBLIC_`). |
+| **SEO** | ~88–95 | Per-route metadata & `metadataBase` pattern via `site-url` helper improves absolute URLs when configured. |
+
+**How to maximize scores:** optimize hero assets (sizes, blur placeholders), tighten Swiper payloads, prefetch only where needed, and ensure course API responds quickly globally.
+
+---
+
+## Core features
 
 - Home page with hero slider, popular courses, trending courses, top instructors, and learning tips.
-- Course list with title-based search.
-- Protected route flow for courses and profile pages.
-- Better Auth email/password login and registration.
-- Profile view and profile update.
-- Loading states, custom 404 page, and route-level metadata.
+- Course listing with search.
+- Middleware-based protection for `/courses/[id]` and profile routes (see `middleware`/`proxy`).
+- Better Auth: email/password + MongoDB adapter; Google & GitHub when env keys are present.
+- Profile view/update; loading states and custom `not-found`.
 
-## Tech Stack
+## Tech stack
 
 - Next.js App Router (`next@16`)
 - Tailwind CSS v4 + DaisyUI
-- Better Auth + MongoDB adapter
-- Framer Motion + Swiper
-- React Hook Form + React Hot Toast
+- Better Auth + official Mongo adapter pattern (`mongodb` + `mongodbAdapter`)
+- Framer Motion, Swiper, Lucide (password toggle), react-icons (social icons)
+- React Hook Form, React Hot Toast
+- Course data via `fetch`/`cache` helpers in `src/lib/data-fetch.js`
 
-## Environment Variables
+## Environment variables
 
-Create `.env.local` for local development:
+### Local (`.env` / `.env.local`)
 
 ```env
 BETTER_AUTH_SECRET=your_secure_random_secret
@@ -35,33 +67,37 @@ BETTER_AUTH_URL=http://localhost:3000
 MONGO_URI=your_mongodb_connection_string
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
 NEXT_PUBLIC_API_URL=http://localhost:5000
+
+# OAuth (optional; omit if not using social buttons)
+GOOGLE_CLIENT_ID=
+GOOGLE_CLIENT_SECRET=
+GITHUB_CLIENT_ID=
+GITHUB_CLIENT_SECRET=
 ```
 
-### Vercel Environment Variables
+### Vercel
 
-Set these in Vercel Project Settings:
+Add **the same keys** used locally. Critically:
 
-- `BETTER_AUTH_SECRET`
-- `BETTER_AUTH_URL` (example: `https://your-domain.vercel.app`)
-- `MONGO_URI`
-- `NEXT_PUBLIC_BASE_URL` (same as deployed site URL)
-- `NEXT_PUBLIC_API_URL` (public API/fake-server URL)
+- Scope **Production _and_ Preview** for **all** OAuth client vars (`GOOGLE_*`, `GITHUB_*`) if you test the primary domain—Preview-only scopes cause **`500`** on `/api/auth/sign-in/social` on production.
+- Set `BETTER_AUTH_URL` and `NEXT_PUBLIC_BASE_URL` to the **canonical HTTPS deployment URL** (not `localhost`).
+- Register OAuth redirect URLs with each provider for that origin, for example:
 
-## Local Development
+  `https://<your-project>.vercel.app/api/auth/callback/google`  
+  `https://<your-project>.vercel.app/api/auth/callback/github`
 
-Install dependencies:
+## Image remote patterns
+
+`next.config.mjs` whitelists common hosts (Unsplash, i.ibb.co, JSON placeholder avatars, **Google/GitHub avatar CDNs**) so authenticated users’ profile images work with `<Image />`.
+
+## Local development
 
 ```bash
 npm install
-```
-
-Run Next.js dev server:
-
-```bash
 npm run dev
 ```
 
-Run fake API server (`db.json`):
+Optional fake API (`db.json`):
 
 ```bash
 npm run server
@@ -69,13 +105,16 @@ npm run server
 
 ## Scripts
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-- `npm run server` - Start json-server on port `5000`
+| Script | Purpose |
+|--------|---------|
+| `npm run dev` | Dev server |
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run lint` | ESLint |
+| `npm run server` | json-server on port `5000` |
 
-## Notes
+## Project notes
 
-- Client data fetch uses `NEXT_PUBLIC_API_URL` in `src/lib/data-fetch.js`.
-- Better Auth API is served from `src/app/api/auth/[...all]/route.js`.
+- Client course requests use `NEXT_PUBLIC_API_URL` in `src/lib/data-fetch.js`.
+- Better Auth is mounted at `src/app/api/auth/[...all]/route.js`.
+- Password visibility toggle implementation: `src/components/auth/PasswordInputWithToggle.jsx` (used by login/register).
