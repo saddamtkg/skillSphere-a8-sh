@@ -14,7 +14,9 @@ const HeroSlider = ({ slides = [] }) => {
   if (!slides.length) {
     return (
       <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-        <p className="text-center text-sm text-slate-500">No hero data found.</p>
+        <p className="text-center text-sm text-slate-500">
+          No hero data found.
+        </p>
       </section>
     );
   }
@@ -83,7 +85,7 @@ const HeroSlider = ({ slides = [] }) => {
                 >
                   <Link
                     href="/courses"
-                    className="inline-flex rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-100"
+                    className="inline-flex rounded-full bg-white px-4 py-2 sm:px-6 sm:py-3 text-sm font-semibold text-slate-900 transition-all duration-200 hover:-translate-y-0.5 hover:bg-slate-100"
                   >
                     {slide.ctaText || "Explore Courses"}
                   </Link>

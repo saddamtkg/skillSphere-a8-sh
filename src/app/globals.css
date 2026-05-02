@@ -9,20 +9,34 @@
 }
 
 @theme {
-  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif,
+  --font-sans:
+    var(--font-plus-jakarta), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji";
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo,
-    Monaco, Consolas, "Liberation Mono", monospace;
+  --font-mono:
+    var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", monospace;
 }
 
-@utility c-container{
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
+@utility c-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .hero-slider .swiper-pagination {
-  bottom: 62px !important;
+  bottom: 50px !important;
+}
+
+@media screen and (max-width: 1024px) {
+  .hero-slider .swiper-pagination {
+    bottom: 30px !important;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .hero-slider .swiper-pagination {
+    bottom: 12px !important;
+  }
 }
 
 .hero-slider .swiper-pagination-bullet {
