@@ -40,7 +40,7 @@ const LoginForm = ({ redirectPath = "/" }) => {
   };
 
   return (
-    <div className="w-full min-w-md max-w-lg rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+    <div className="w-full sm:w-125 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
       <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
         Welcome Back
       </p>
